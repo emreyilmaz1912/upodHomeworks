@@ -1,3 +1,4 @@
+package studentInformation;
 
 public class StudentInformation {
     String name;

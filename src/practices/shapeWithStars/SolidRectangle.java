@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SolidRectangle {
 
-    public static void solidRectangle(){
+    private static void solidRectangle(){
 
         Scanner input = new Scanner(System.in);
         System.out.print("Satır sayısını giriniz :");

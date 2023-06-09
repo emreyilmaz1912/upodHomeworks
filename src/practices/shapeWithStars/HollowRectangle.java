@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class HollowRectangle {
 
-    public static void hollowRectangle(){
+    private static void hollowRectangle(){
 
         Scanner inp = new Scanner(System.in);
         System.out.print("Satır sayısını giriniz :");

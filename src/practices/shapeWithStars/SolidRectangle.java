@@ -8,14 +8,14 @@ public class SolidRectangle {
 
         Scanner input = new Scanner(System.in);
         System.out.print("Satır sayısını giriniz :");
-        int n = input.nextInt();
+        int row = input.nextInt();
         System.out.print("Sütun sayısını giriniz :");
-        int m = input.nextInt();
+        int cloumn = input.nextInt();
 
-        for (int i = 0; i < n; i++){
+        for (int i = 0; i < row; i++){
             System.out.print("*");
 
-           for (int j = 0; j < m; j++) {
+           for (int j = 0; j < cloumn; j++) {
                System.out.print("*");
            }
             System.out.println();

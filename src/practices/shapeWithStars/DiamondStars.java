@@ -42,6 +42,10 @@ public class DiamondStars {
 
     public static void main(String[] args) {
         DiamondStars diamondStars = new DiamondStars();
+
         diamondStars();
+
+
+
     }
 }

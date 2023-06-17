@@ -2,25 +2,22 @@ package copyPriceCalculation_Odev2;
 
 
 
-public class CalculatePrice {
-    double totalPrice = 0.0;
-    final double copyPriceMin = 0.05;
-    final double copyPriceMid = 0.50/12;
 
-    final double copyPriceMax = 1.00/25;
+public class CalculatePrice {
+
+
 
     int calculatePrice(int n) {
-        if (n <= 0){
-            return 0;
-        }else if (n >= 1 && n < 12){
-            totalPrice = n * copyPriceMin;
-        }else if (n >= 12 &&n < 25 ){
-            totalPrice = n * copyPriceMid;
-        }else totalPrice = n * copyPriceMax;
-        return n;
-    }
-        void printInfo(){
-            System.out.println("Toplam fotokopi ücretiniz : " +  totalPrice);
-        }
+        int sum = 0;
+        int sumMod;
 
+        sum += (n / 25) * 100;
+        sumMod = n % 25;
+        if (sumMod >= 12) {
+            sum += (sumMod / 12) * 50;
+            sumMod %= 12;
+        }
+        return sum += sumMod * 5;
+
+    }
 }

@@ -10,11 +10,11 @@ public class Rectangle {
         int n = scan.nextInt();
 
 
-        for (int i = 1; i < n; i++){
+        for (int i = 0; i < n; i++){
             for (int j = i; j < n; j++){
                 System.out.print(" ");
-            }for (int k = 1; k <= i; k++){
-                if (i==1 || i==n || k==1 || k==n)
+            }for (int k = 0; k <= i; k++){
+                if (i==0  || k==0 )
                 System.out.print("*");
                else {
                     System.out.print("**");

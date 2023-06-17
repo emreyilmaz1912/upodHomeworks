@@ -12,13 +12,14 @@ public class HollowRectangle {
         System.out.print("Sütun sayısını giriniz :");
         int cloumn = inp.nextInt();
 
-        for (int i = 1; i <= row; i++){
-            for (int j = 1; j <= cloumn; j++) {
-                if (i==1 || i==row || j==1 || j==cloumn)
+        for (int i = 0; i <= row; i++){
+            for (int j = 0; j <= cloumn; j++) {
+                if (i==0 || i==row || j==0 || j==cloumn)
                     System.out.print("*");
                 else
                     System.out.print(" ");
             }
+
             System.out.println();
         }
     }

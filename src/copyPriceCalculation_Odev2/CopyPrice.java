@@ -15,6 +15,5 @@ public class CopyPrice {
 
         recursiveCalculatePrice.recursiveCalculatePrice(n);
         System.out.println("Toplam fotokopi ücretiniz(recursive)  : " + recursiveCalculatePrice.recursiveCalculatePrice(n) + " kuruş");
-
     }
 }

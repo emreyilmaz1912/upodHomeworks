@@ -2,11 +2,10 @@ package convertToStringWithStars;
 
 public class ConvertToStringWithStars {
 
-
-    public static String convertToStringWithStars(String text){
-        if (text.length() <= 1){
+    public static String convertToStringWithStars(String text) {
+        if (text.length() <= 1) {
             return text;
-        }else {
+        } else {
             char validChar = text.charAt(0);
             char nextChar = text.charAt(1);
             String remainingText = text.substring(1); //ilk karakteri çıkararak geri kalanını tekrar atar,
@@ -14,11 +13,10 @@ public class ConvertToStringWithStars {
             String result = validChar + (isStarAllowed(validChar, nextChar) ? "*" : "") + convertToStringWithStars(remainingText);
             return result;
         }
-
     }
-   public static boolean isStarAllowed(char validChar, char nextChar) {
 
-        // "*" koyulup koyulmayacağını sorguluyor.
+    public static boolean isStarAllowed(char validChar, char nextChar) {
+
         if (validChar == ' ' || validChar == '.' || validChar == ',') {
             return false;
         }
@@ -27,6 +25,5 @@ public class ConvertToStringWithStars {
         }
         return true;
     }
-
 
 }

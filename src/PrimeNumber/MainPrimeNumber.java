@@ -9,7 +9,7 @@ public class MainPrimeNumber {
         System.out.print("Lütfen bir sayı giriniz :");
         int n = input.nextInt();
 
-    PrimeNumberWithSieveOfEratosthenes prime  = new PrimeNumberWithSieveOfEratosthenes(n);
+        PrimeNumberWithSieveOfEratosthenes prime = new PrimeNumberWithSieveOfEratosthenes(n);
 
     }
 }

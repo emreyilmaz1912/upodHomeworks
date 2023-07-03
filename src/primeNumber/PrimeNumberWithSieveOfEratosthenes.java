@@ -1,4 +1,4 @@
-package PrimeNumber;
+package primeNumber;
 
 import java.util.Arrays;
 

@@ -17,7 +17,7 @@ public class Reader {
     }
 
     public void printInfo() {
-        System.out.println("Okuyu Bilgileri : " + "\n Adı : " + getName() + "\n Yaşı : " + getAge() + "\n Cinsiyeti : " + getSex());
+        System.out.println("Okuyucu Bilgileri : " + "\n Adı : " + getName() + "\n Yaşı : " + getAge() + "\n Cinsiyeti : " + getSex());
     }
 
     public String getName() {

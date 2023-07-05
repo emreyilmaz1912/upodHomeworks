@@ -38,14 +38,11 @@ public class Point {
                 grid[point.getY()][point.getX()] = "P" + counter;
                 counter++;
             }
-
         } else {
             for (Point point : points) {
                 grid[point.getY()][point.getX()] = "P";
             }
         }
-
-
         for (int i = grid.length - 1; i >= 0; i--) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (i == 0 && j == 0) {

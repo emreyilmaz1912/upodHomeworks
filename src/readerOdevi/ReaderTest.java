@@ -6,6 +6,7 @@ public class ReaderTest {
         Author pauloCoelho = new Author("Paulo Coelho");
         Author antonCehov = new Author("Anton Çehov");
         Author doganCuceloglu = new Author("Doğan Cüceloğlu");
+
         Book simyaci = new Book(pauloCoelho, "Simyacı", 188, "Felsefe", "Karton Kapak", 0);
         Book elif = new Book(pauloCoelho, "Elif", 256, "Aşk ve Dram", "Karton Kapak", 0);
         Book hac = new Book(pauloCoelho, "Hac", 223, "Felsefe", "Karton Kapak", 0);
@@ -13,6 +14,7 @@ public class ReaderTest {
         Book hayvanCiftligi = new Book("Hayvan Çiftliği", 152, "Edebiyat", "Sıvama Kapak", 0);
         Book papazinKizi = new Book("Papazın Kızı", 328, "Edebiyat", "Karton Kapak", 0);
         Book evlenmedenOnce = new Book(doganCuceloglu, "Evlenmeden Önce", 208);
+
 
         Reader reader = new Reader("Emre", 31, "Erkek");
         Reader reader1 = new Reader("Onur", 28, "Erkek");

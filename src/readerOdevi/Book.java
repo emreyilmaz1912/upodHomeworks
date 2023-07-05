@@ -8,7 +8,6 @@ public class Book {
     String hardCover;
     int currentPage;
 
-
     public Book(Author author, String title, int pageCount, String type, String hardCover, int currentPage) {
         this.author = author;
         this.title = title;
@@ -23,7 +22,7 @@ public class Book {
     }
 
     public Book(String title, int pageCount, String type, String hardCover, int currentPage) {
-        this(new Author("Geoge Orwell"), title, pageCount, type, hardCover, currentPage);
+        this(new Author("George Orwell"), title, pageCount, type, hardCover, currentPage);
     }
 
     public Book(Author author, String title, int pageCount) {

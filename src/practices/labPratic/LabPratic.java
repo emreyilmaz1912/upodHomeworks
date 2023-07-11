@@ -8,18 +8,24 @@ public class LabPratic {
     static final String[] NUMARIC_CHARACTERS = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     static final String[] SYMBOL_CHARACTERS = {"-", "*", "%", "&", "?", "!", "_", "-", "|", "(", ")", "[", "]", "#", "<", ">"};
     static final String[] CHARACTERS_LOWER = new String[CHARACTERS.length];
-
+    static List<String> characterSet = new ArrayList<>();
+    static List<String[]> list = new ArrayList<>();
     Random random = new Random();
     Scanner input = new Scanner(System.in);
-    static List<String> characterSet = new ArrayList<>();
     StringBuilder stringBuilder = new StringBuilder();
-    static  List<String[]> list = new ArrayList<>();
-
     private int lenghtOfPassword;
     private int lowerLetter;
     private int upperLetter;
     private int includeNumber;
     private int includeCharacter;
+
+    public LabPratic(int lenghtOfPassword) {
+        this.lenghtOfPassword = lenghtOfPassword;
+    }
+
+    public LabPratic() {
+
+    }
 
     public int getLenghtOfPassword() {
         return lenghtOfPassword;
@@ -27,13 +33,6 @@ public class LabPratic {
 
     public void setLenghtOfPassword(int lenghtOfPassword) {
         this.lenghtOfPassword = lenghtOfPassword;
-    }
-
-    public LabPratic(int lenghtOfPassword) {
-        this.lenghtOfPassword = lenghtOfPassword;
-    }
-    public LabPratic() {
-
     }
 
     public void writeFile(String passWord) throws IOException {
@@ -126,9 +125,9 @@ public class LabPratic {
         }
         String randomPassword = stringBuilder.toString();
         IsControl control = new IsControl(randomPassword, list);
-        if (list.size() <= LabPraticTest.value){
+        if (list.size() <= LabPraticTest.value) {
             control.runControl();
-        }else {
+        } else {
             System.out.println("Yeni şifreniz : " + randomPassword);
             try {
                 writeFile(randomPassword);

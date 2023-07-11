@@ -40,9 +40,8 @@ public class IsControl {
                 isValid |= randomPassword.contains(character);
             }
             if (isValid) {
-                isValidLast &= true;
-            }else{
-                isValidLast &= false;
+            } else {
+                isValidLast = false;
             }
         }
         return isValidLast;

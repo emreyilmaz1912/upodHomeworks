@@ -3,7 +3,8 @@ package practices.labPratic;
 import java.util.Scanner;
 
 public class LabPraticTest {
-    public static  int value;
+    public static int value;
+
     public static void main(String[] args) {
 
         int selected = 1;

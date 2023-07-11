@@ -1,35 +1,50 @@
 package practices.labPratic;
 
+import java.io.IOException;
+import java.util.List;
+
 public class IsControl {
     String randomPassword;
-    String[][] characters;
     LabPratic labPratic = new LabPratic();
+    List<String[]> list;
 
-    public IsControl(String randomPassword, String[]... characters) {
+
+    public IsControl(String randomPassword, List<String[]> list) {
         this.randomPassword = randomPassword;
-        this.characters = characters;
+        this.list = list;
     }
 
-
-    public void runControl() {
-        boolean control = isControl();
+    public boolean runControl() {
+        boolean control = isValidControl();
 
         if (control) {
             System.out.println("Yeni şifreniz : " + randomPassword);
+            try {
+                labPratic.writeFile(randomPassword);
+                System.out.println("Şifreniz password.txt dosyasına eklendi!");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         } else if (!control) {
             labPratic.createRandomPassword();
         }
+        return control;
     }
 
-    public boolean isControl() {
-        for (String[] charArray : characters) {
+    private boolean isValidControl() {
+        boolean isValid = false;
+        boolean isValidLast = true;
+        for (String[] charArray : list) {
+            isValid = false;
             for (String character : charArray) {
-                if (randomPassword.contains(character)) {
-                    return true;
-                }
+                isValid |= randomPassword.contains(character);
+            }
+            if (isValid) {
+                isValidLast &= true;
+            }else{
+                isValidLast &= false;
             }
         }
-        return false;
+        return isValidLast;
     }
-
 }

@@ -1,15 +1,20 @@
 package practices.labPratic;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class LabPraticTest {
+    public static  int value;
     public static void main(String[] args) {
-        int selected = 1;
-        LabPratic labPratic = new LabPratic();
-        Scanner input = new Scanner(System.in);
 
+        int selected = 1;
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Şifrenin uzunluğu ne kadar olmalı? :");
+        int lenghtOfPassword = input.nextInt();
+        value = lenghtOfPassword;
+        LabPratic labPratic = new LabPratic(lenghtOfPassword);
         labPratic.menu();
+        labPratic.createCharacterSet();
         labPratic.createRandomPassword();
 
         while (selected != 0) {
@@ -20,7 +25,10 @@ public class LabPraticTest {
                     System.out.println("İyi Günler");
                     break;
                 case 1:
-                    labPratic = new LabPratic();
+                    System.out.print("Şifrenin uzunluğu ne kadar olmalı? :");
+                    lenghtOfPassword = input.nextInt();
+                    value = lenghtOfPassword;
+                    labPratic = new LabPratic(lenghtOfPassword);
                     labPratic.menu();
                     labPratic.createRandomPassword();
                     break;

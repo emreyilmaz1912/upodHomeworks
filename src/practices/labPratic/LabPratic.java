@@ -1,8 +1,6 @@
 package practices.labPratic;
 
 import java.io.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class LabPratic {
@@ -13,18 +11,32 @@ public class LabPratic {
 
     Random random = new Random();
     Scanner input = new Scanner(System.in);
-    List<String> characterSet = new ArrayList<>();
+    static List<String> characterSet = new ArrayList<>();
     StringBuilder stringBuilder = new StringBuilder();
+    static  List<String[]> list = new ArrayList<>();
 
-    int lenghtOfPassword;
-    int lowerLetter;
-    int upperLetter;
-    int includeNumber;
-    int includeCharacter;
-    String randomPassword;
-    String[] password = {};
+    private int lenghtOfPassword;
+    private int lowerLetter;
+    private int upperLetter;
+    private int includeNumber;
+    private int includeCharacter;
 
-    public  void writeFile(String passWord) throws IOException {
+    public int getLenghtOfPassword() {
+        return lenghtOfPassword;
+    }
+
+    public void setLenghtOfPassword(int lenghtOfPassword) {
+        this.lenghtOfPassword = lenghtOfPassword;
+    }
+
+    public LabPratic(int lenghtOfPassword) {
+        this.lenghtOfPassword = lenghtOfPassword;
+    }
+    public LabPratic() {
+
+    }
+
+    public void writeFile(String passWord) throws IOException {
         Date dateIsNow = new Date();
 
         File file = new File("password.txt");
@@ -34,10 +46,11 @@ public class LabPratic {
         FileWriter fileWriter = new FileWriter(file, true);
         BufferedWriter bWriter = new BufferedWriter(fileWriter);
         bWriter.newLine();
-        bWriter.write("Tarih : "+ dateIsNow +" | "+"Şifre : "+ passWord);
+        bWriter.write("Tarih : " + dateIsNow + " | " + "Şifre : " + passWord);
         bWriter.close();
     }
-    public  void readFile()  {
+
+    public void readFile() {
 
         try {
             File file = new File("password.txt");
@@ -54,7 +67,7 @@ public class LabPratic {
     }
 
 
-    public void clearFile(){
+    public void clearFile() {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("password.txt"));
             writer.write("");
@@ -66,8 +79,6 @@ public class LabPratic {
     }
 
     public void menu() {
-        System.out.print("Şifrenin uzunluğu ne kadar olmalı? :");
-        lenghtOfPassword = input.nextInt();
 
         System.out.print("Şifrede küçük harf olsun mu?\n1 - Evet : \n2 - Hayır : \nSeçiminiz : ");
         lowerLetter = input.nextInt();
@@ -85,45 +96,79 @@ public class LabPratic {
     public void createCharacterSet() {
         for (int i = 0; i < CHARACTERS.length; i++) {
             CHARACTERS_LOWER[i] = CHARACTERS[i].toLowerCase();
-
         }
         if (lowerLetter == 1) {
             Collections.addAll(characterSet, CHARACTERS_LOWER);
+            list.add(CHARACTERS_LOWER);
         }
         if (upperLetter == 1) {
             Collections.addAll(characterSet, CHARACTERS);
+            list.add(CHARACTERS);
         }
         if (includeNumber == 1) {
             Collections.addAll(characterSet, NUMARIC_CHARACTERS);
+            list.add(NUMARIC_CHARACTERS);
         }
         if (includeCharacter == 1) {
             Collections.addAll(characterSet, SYMBOL_CHARACTERS);
+            list.add(SYMBOL_CHARACTERS);
         }
         Collections.shuffle(characterSet);
-
     }
 
-
     public String createRandomPassword() {
-        createCharacterSet();
-        for (int i = 0; i < lenghtOfPassword; i++) {
+
+        for (int i = 0; i < LabPraticTest.value; i++) {
+
             int index = random.nextInt(characterSet.size());
             String randomChar = characterSet.get(index);
             stringBuilder.append(randomChar);
         }
-
         String randomPassword = stringBuilder.toString();
-        try {
-            writeFile(randomPassword);
-            System.out.println("Şifreniz password.txt dosyasına eklendi");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        IsControl control = new IsControl(randomPassword, list);
+        if (list.size() <= LabPraticTest.value){
+            control.runControl();
+        }else {
+            System.out.println("Yeni şifreniz : " + randomPassword);
+            try {
+                writeFile(randomPassword);
+                System.out.println("Şifreniz password.txt dosyasına eklendi!");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-
-        //IsControl control = new IsControl(randomPassword, CHARACTERS, NUMARIC_CHARACTERS, SYMBOL_CHARACTERS, CHARACTERS_LOWER);
-      //  control.runControl();
-        System.out.println("Yeni şifreniz : " + randomPassword);
         return randomPassword;
     }
 
+    public int getLowerLetter() {
+        return lowerLetter;
+    }
+
+    public void setLowerLetter(int lowerLetter) {
+        this.lowerLetter = lowerLetter;
+    }
+
+    public int getUpperLetter() {
+        return upperLetter;
+    }
+
+    public void setUpperLetter(int upperLetter) {
+        this.upperLetter = upperLetter;
+    }
+
+    public int getIncludeNumber() {
+        return includeNumber;
+    }
+
+    public void setIncludeNumber(int includeNumber) {
+        this.includeNumber = includeNumber;
+    }
+
+    public int getIncludeCharacter() {
+        return includeCharacter;
+    }
+
+    public void setIncludeCharacter(int includeCharacter) {
+        this.includeCharacter = includeCharacter;
+    }
 }

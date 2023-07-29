@@ -38,6 +38,7 @@ public class LabPraticTest {
                     break;
                 case 3:
                     labPratic.clearFile();
+                    break;
             }
         }
     }

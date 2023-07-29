@@ -37,7 +37,6 @@ public class LabPratic {
 
     public void writeFile(String passWord) throws IOException {
         Date dateIsNow = new Date();
-
         File file = new File("password.txt");
         if (!file.exists()) {
             file.createNewFile();
@@ -45,6 +44,7 @@ public class LabPratic {
         FileWriter fileWriter = new FileWriter(file, true);
         BufferedWriter bWriter = new BufferedWriter(fileWriter);
         bWriter.newLine();
+
         bWriter.write("Tarih : " + dateIsNow + " | " + "Şifre : " + passWord);
         bWriter.close();
     }
@@ -116,9 +116,7 @@ public class LabPratic {
     }
 
     public String createRandomPassword() {
-
         for (int i = 0; i < LabPraticTest.value; i++) {
-
             int index = random.nextInt(characterSet.size());
             String randomChar = characterSet.get(index);
             stringBuilder.append(randomChar);
